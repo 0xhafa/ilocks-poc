@@ -23,5 +23,9 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.10",
+    "typescript": "^4.6.3"
   }
 }
