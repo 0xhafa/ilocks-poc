@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Body = styled.div`
   align-items: center;
-  color: white;
+  color: black;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  font-size: 18px;
   justify-content: center;
   margin-top: 40px;
 `;
@@ -50,5 +50,5 @@ export const Link = styled.a.attrs({
   rel: "noopener noreferrer",
 })`
   color: #61dafb;
-  margin-top: 8px;
+  margin-top: 0px;
 `;
