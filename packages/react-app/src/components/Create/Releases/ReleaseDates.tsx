@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import IndeterminateCheckBoxIcon from '@mui/icons-material/IndeterminateCheckBox';
 import { Box, Stack, Typography } from '@mui/material';
 import { DateTime } from 'luxon'
 
-import DateInput from '../DateInput'
+import DateInput from './DateInput'
 
 interface Props {
   control: any
@@ -24,8 +24,33 @@ const ReleaseDates = (props: Props) => {
     />
   ])
 
+  useEffect(() => {
+    if(releaseDatesCurrentValue === undefined) return;
+    const currentDates = releaseDatesCurrentValue.map((value, index) => {
+      return <DateInput
+          control={control}
+          fieldName="releaseDate"
+          label={`Release Date ${index}`}
+          index={index}
+          key={index} 
+        />
+    })
+    setPossibleReleaseDates(currentDates)
+  }, [])
+  
   return (
-    <Box>
+    <Box 
+      sx={{
+        border: 2,
+        borderColor: '#e0e0e0',
+        bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#101010' : '#fff'),
+        color: (theme) =>
+          theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800',
+        p: 1,
+        m: 0,
+        borderRadius: 2
+      }}
+    >
       <Typography mb={2}>
         Release Dates
       </Typography>

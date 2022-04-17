@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Container } from '@mui/material';
+import { Container, Box, Button, Grid } from '@mui/material';
 
 import Releases from './Releases/Releases';
+import Fees from './Fees/Fees';
+import Incentives from './Incentives/Incentives';
+import NavTabs from './Nav/NavTabs';
 
 const Create = () => {
   const [currentPage, setCurrentPage] = useState("releases");
@@ -13,16 +16,26 @@ const Create = () => {
     if (currentPage === "releases") {
       return <Releases register={register} setValue={setValue} control={control} values={getValues()}/>;
     }
-  
+    if (currentPage === "incentives") {
+      return <Incentives register={register} setValue={setValue} control={control} values={getValues()}/>;
+    }
+    if (currentPage === "fees") {
+      return <Fees register={register} setValue={setValue} control={control} values={getValues()}/>;
+    }
     return <></>;
   }
 
-  console.log(getValues())
     return (
-        <Container maxWidth="lg">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {getCurrentPage(currentPage)}
-          </form>
+        <Container maxWidth="md">
+          <Box>
+            <NavTabs setCurrentPage={setCurrentPage}/>
+          </Box>
+          <Box textAlign="center">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              { getCurrentPage(currentPage) }
+              <Button type="submit" variant="contained" size="large">Create Lock</Button>
+            </form>
+          </Box>
         </Container>
     )
 }

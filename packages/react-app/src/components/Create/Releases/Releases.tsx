@@ -1,6 +1,6 @@
 import React from 'react';
-import { TextField, Stack } from '@mui/material';
-import DateInput from '../DateInput';
+import { TextField, Stack, Box } from '@mui/material';
+import DateInput from './DateInput';
 import ReleaseDates from './ReleaseDates';
 import { DateTime } from 'luxon'
 
@@ -19,7 +19,8 @@ const Releases = (props: Props) => {
   }
 
   return (
-      <Stack spacing={2}>
+    <Box sx={{ flexGrow: 1 }}>
+      <Stack spacing={2} m={2}>
         <TextField 
           id="lockedtoken-textinput"
           label="Locked token"
@@ -39,10 +40,11 @@ const Releases = (props: Props) => {
         />
         <ReleaseDates
           control={control}
-          releaseDatesCurrentValue={values['releaseDate']}
+          releaseDatesCurrentValue={values.releaseDate}
           setReleaseDates={setReleaseDates}
         />
-      </Stack> 
+      </Stack>
+    </Box> 
   )
 }
 
