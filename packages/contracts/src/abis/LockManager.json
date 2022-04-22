@@ -311,11 +311,6 @@
         "internalType": "struct DataTypes.RewardsParams[]",
         "name": "_rewards",
         "type": "tuple[]"
-      },
-      {
-        "internalType": "bytes32[]",
-        "name": "_proof",
-        "type": "bytes32[]"
       }
     ],
     "name": "createLockSchedule",
@@ -574,19 +569,6 @@
       }
     ],
     "name": "setTreasury",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "_newRoot",
-        "type": "bytes32"
-      }
-    ],
-    "name": "updateMerkleRoot",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
