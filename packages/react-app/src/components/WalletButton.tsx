@@ -4,21 +4,25 @@ import { Button } from ".";
 
 import { shortenAddress, useEthers, useLookupAddress } from "@usedapp/core";
 
-function WalletButton() {
-    const [rendered, setRendered] = useState("");
+interface Props {
+  rendered: string;
+  setRendered: any;
+}
+
+function WalletButton(props: Props) {
   
     const ens = useLookupAddress();
     const { account, activateBrowserWallet, deactivate, error } = useEthers();
   
     useEffect(() => {
       if (ens) {
-        setRendered(ens);
+        props.setRendered(ens);
       } else if (account) {
-        setRendered(shortenAddress(account));
+        props.setRendered(shortenAddress(account));
       } else {
-        setRendered("");
+        props.setRendered("");
       }
-    }, [account, ens, setRendered]);
+    }, [account, ens, props.setRendered]);
   
     useEffect(() => {
       if (error) {
@@ -35,9 +39,10 @@ function WalletButton() {
             deactivate();
           }
         }}
+        style={{alignSelf: 'right', marginRight: '50px'}}
       >
-        {rendered === "" && "Connect Wallet"}
-        {rendered !== "" && rendered}
+        {props.rendered === "" && "Connect Wallet"}
+        {props.rendered !== "" && props.rendered}
       </Button>
     );
   }
