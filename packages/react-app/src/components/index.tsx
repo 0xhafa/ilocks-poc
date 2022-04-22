@@ -35,8 +35,9 @@ export const Header = styled.header`
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  min-height: 70px;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
 `;
 
 export const Image = styled.img`

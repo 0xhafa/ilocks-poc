@@ -33,7 +33,7 @@ const Create = () => {
           <Box textAlign="center">
             <form onSubmit={handleSubmit(onSubmit)}>
               { getCurrentPage(currentPage) }
-              <Button type="submit" variant="contained" size="large">Create Lock</Button>
+              <Button type="submit" variant="contained" size="large" style={{marginTop:'20px'}} >Create Lock</Button>
             </form>
           </Box>
         </Container>
