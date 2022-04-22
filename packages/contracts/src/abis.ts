@@ -1,9 +1,11 @@
-import erc20Abi from "./abis/erc20.json";
-import ownableAbi from "./abis/ownable.json";
+import lockToken from "./abis/LockToken.json";
+import lockManager from "./abis/LockManager.json";
+import lockDiamond from "./abis/LockDiamond.json";
 
 const abis = {
-  erc20: erc20Abi,
-  ownable: ownableAbi,
+  lockToken: lockToken,
+  lockManager: lockManager,
+  lockDiamond: lockDiamond,
 };
 
 export default abis;
