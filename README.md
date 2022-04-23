@@ -1,135 +1,59 @@
-This project was bootstrapped with [Create Eth App](https://github.com/paulrberg/create-eth-app).
+********************************************************************
+Note: This repo is not under maintenning. 
+This repo is written only for POC. ILOCKS is implemented simply for demostration.
+If you want access a commercial version of this application, please send me an email. Thanks!
+********************************************************************
 
-## Project Structure
+<img src="./packages/react-app/iLocks - logo.png">
 
-The default template is a monorepo created with [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
+# Full Documentation
+Access the full documentation for this project, including the video presentation, following this link: [Full Documentation](./docs/) 👈
 
-Workspaces makes it possible to setup multiple packages in such a way that we only need to run `yarn install` once to install all of them in
-a single pass. Dependencies are hoisted at the root.
+# Disclaimer
+This presentation is not either an investment advice or a recommendation or solicitation to buy or sell any investment and should not be used in the evaluation of the merits of making any investment decision. It should not be relied upon for accounting, legal or tax advice or investment recommendations. The contents reflected herein are subject to change without being updated. The codes are written for informational and educational purpose only.
 
-```
-my-eth-app
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-└── packages
-    ├── contracts
-    │   ├── README.json
-    │   ├── package.json
-    │   └── src
-    │       ├── abis
-    │       │   ├── erc20.json
-    │       │   └── ownable.json
-    │       ├── addresses.js
-    │       └── index.js
-    ├── react-app
-    │   ├── README.md
-    │   ├── node_modules
-    │   ├── package.json
-    │   ├── public
-    │   │   ├── favicon.ico
-    │   │   ├── index.html
-    │   │   ├── logo192.png
-    │   │   ├── logo512.png
-    │   │   ├── manifest.json
-    │   │   └── robots.txt
-    │   └── src
-    │       ├── App.css
-    │       ├── App.js
-    │       ├── App.test.js
-    │       ├── ethereumLogo.svg
-    │       ├── index.css
-    │       ├── index.js
-    │       ├── serviceWorker.js
-    │       └── setupTests.js
-    └── subgraph
-        ├── README.md
-        ├── abis
-        │   └── erc20.json
-        ├── package.json
-        ├── schema.graphql
-        ├── src
-        │   └── mappings
-        │       ├── tokens.ts
-        │       └── transfers.ts
-        └── subgraph.yaml
-```
+USE THE SOFTWARE AT YOUR OWN RISK. YOU ARE RESPONSIBLE FOR YOUR OWN MONEY. PAST PERFORMANCE IS NOT NECESSARILY INDICATIVE OF FUTURE RESULTS. THE AUTHORS AND ALL AFFILIATES ASSUME NO RESPONSIBILITY FOR YOUR TRADING RESULTS.
 
-Owing to this dependency on Yarn Workspaces, Create Eth App can't be used with npm.
+# ILOCKS - Incentivized Token Lock
+ILOCKS is a token time lock and token vesting decentralized application. It is a simple dapp that holds digital assets for some time and vests tokens according to predefined conditions. 
 
-## Available Scripts
+Token locks and token vesting applications are a common use case for smart contracts. It is maily used to: 
+- Protect liquidity, reducing the risk of liquidity being pulled all at once by project owners, the famous rug-pull, and also ensuring liquidity for market participants.
+- Reduce Sell Pressure, Projects can lock a percentage of their pre-mined token supply or team-owned tokens. this way, the community, and investors can be reassured that tokens will not be mass dumped by the team during the contract period.
+- Reward Contributor, DAOs use token vesting mechanisms to reward investors and contributors with governance tokens with reduced price impact due to distribution deferred over time.
 
-In the project directory, you can run:
+# Ouline of Problem
+Despite of the utility of token locks and token vesting applications, the main projects offering these services provide limited customization for their users. The three main service providers only offer customization of lock duration (days) and vesting frequency (hour, day, week, month and etc.).
 
-### React App
+# The Solution
+Using ILOCKS, the user can set the following parameter for the lock: duration, fees, incentives, and also how these parameters will behave over time.
 
-#### `yarn react-app:start`
+# How it works
+Operators can create a lock schedule specifying: starting data, release dates, token locked, reward rate, vesting schedule, and fees.
 
-Runs the React app in development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The User selects a lock and lock their tokens to receive a fungible position of locked tokens. After locking the can claim their reward tokens according to the predifined schedule.
+<img src="./docs/imgs/How-it-works.png">
 
-The page will automatically reload if you make changes to the code.<br>
-You will see the build errors and lint warnings in the console.
+# Screen Shot
+<img src="./docs/imgs/Interface.png">
 
-#### `yarn react-app:test`
+# About the Project
+## Author
+Name  | Git Hub | LinkedIn 
+------------- | ------------- | ------------- 
+Rafael Albuquerque Bezerra  | [albuquerque-rafael](https://github.com/albuquerque-rafael) | [rafael-albuquerque-bezerra](https://www.linkedin.com/in/rafael-albuquerque-bezerra/) 
 
-Runs the React test watcher in an interactive mode.<br>
-By default, runs tests related to files changed since the last commit.
+## Revisions
+Date  |  Revision  |  Description  |  Author
+--------  |  --------  |  --------  |  --------	
+12/04/2022  |  `0.1`  |  First Draft  |  Rafael A. Bezerra
+22/04/2022  |  `0.2`  |  Final Review  |  Rafael A. Bezerra
 
-[Read more about testing React.](https://facebook.github.io/create-react-app/docs/running-tests)
+# MIT License
+Copyright (c) 2022
 
-#### `yarn react-app:build`
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-Builds the React app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the React documentation on [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-#### `yarn react-app:eject`
-
-**Note: this is a one-way operation. Once you `react-app:eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` the React app at any time. This command will
-remove the single build dependency from your React package.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right
-into the `react-app` package so you have full control over them. All of the commands except `react-app:eject` will still work,
-but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `react-app:eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-### Subgraph
-
-The Graph is a tool for for indexing events emitted on the Ethereum blockchain. It provides you with an easy-to-use GraphQL API. <br/>
-
-To learn more, check out the [The Graph documentation](https://thegraph.com/docs).
-
-#### `yarn subgraph:codegen`
-
-Generates AssemblyScript types for smart contract ABIs and the subgraph schema.
-
-#### `yarn subgraph:build`
-
-Compiles the subgraph to WebAssembly.
-
-#### `yarn subgraph:auth`
-
-Before deploying your subgraph, you need to sign up on the
-[Graph Explorer](https://thegraph.com/explorer/). There, you will be given an access token. Drop it in the command
-below:
-
-```sh
-GRAPH_ACCESS_TOKEN=your-access-token-here yarn subgraph:auth
-```
-
-#### `yarn subgraph:deploy`
-
-Deploys the subgraph to the official Graph Node.<br/>
-
-Replace `paulrberg/create-eth-app` in the package.json script with your subgraph's name.
-
-You may also want to [read more about the hosted service](https://thegraph.com/docs/quick-start#hosted-service).
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
