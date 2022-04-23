@@ -16,25 +16,6 @@ function App() {
   const [page, setPage] = useState("create");
   const [rendered, setRendered] = useState("");
 
-  // const { error: contractCallError, value: tokenBalance } =
-  //   useCall({
-  //      contract: new Contract(addresses.lockDiamond, abis.lockManager),
-  //      method: "balanceOf",
-  //      args: ["0x3f8CB69d9c0ED01923F11c829BaE4D9a4CB6c82C"],
-  //   }) ?? {};
-
-  // const { loading, error: subgraphQueryError, data } = useQuery(GET_TRANSFERS);
-
-  // useEffect(() => {
-  //   if (subgraphQueryError) {
-  //     console.error("Error while querying subgraph:", subgraphQueryError.message);
-  //     return;
-  //   }
-  //   if (!loading && data && data.transfers) {
-  //     console.log({ transfers: data.transfers });
-  //   }
-  // }, [loading, subgraphQueryError, data]);
-
   const getCurrentPage = (currentPage:string) => {
     if(rendered === "") return <div style={{fontSize:'36px', fontFamily:'revert'}}>Connect Wallet</div>
     if (currentPage === "create") {
